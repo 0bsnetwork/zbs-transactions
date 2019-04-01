@@ -1,10 +1,4 @@
-# zbs-transactions  [![npm version](https://badge.fury.io/js/%40waves%2Fzbs-transactions.svg)](https://badge.fury.io/js/%40waves%2Fzbs-transactions)
-
-[![License][license-image]][license-url] ![Coverage badge gree][coverage-badge-green]
-
-[license-url]: https://opensource.org/licenses/MIT
-[license-image]: https://img.shields.io/npm/l/make-coverage-badge.svg
-[coverage-badge-green]:https://img.shields.io/badge/Coverage-98.77%25-brightgreen.svg
+# zbs-transactions
 
 Using this library you can easily create and sign transactions for Zbs blockchain.
 It also allows you to multi-sign existing transactions or create them without signature at all.
@@ -101,14 +95,10 @@ So now there are two proofs:
 ### Broadcast
 To send transaction you can use either node [REST API](https://nodes.0bsnetwork.com/api-docs/index.html#!/transactions/broadcast) or [broadcast](https://0bsnetwork.github.io/zbs-transactions/globals.html#broadcast) helper function:
 ```javascript
-const {broadcast} =  require('@waves/waves-transaction');
-const nodeUrl = 'https://nodes.0bsnetwork.com';
+const {broadcast} =  require('@0bsnetwork/zbs-transaction');
+const nodeUrl = 'https://node1.testnet-0bsnetwork.com';
 
 broadcast(signedTx, nodeUrl).then(resp => console.log(resp))
 ```
-You can send tx to any waves node you like:. E.g.:
-* https://testnodes.wavesnodes.com - waves TESTNET nodes hosted by Zbsplatform
-* https://nodes.0bsnetwork.com - waves MAINNET nodes hosted by Zbsplatform
-#### Important!!!
-Most transactions require chainId as parameter, e.g: [IBurnParams](https://0bsnetwork.github.io/zbs-transactions/interfaces/iburnparams.html). By default chainId is 'W', which means MAINNET. To make transaction in TESTNET be sure to pass chainId if it is present in params interface and then send it to TESTNET node
+
 

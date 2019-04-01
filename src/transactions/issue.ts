@@ -24,9 +24,9 @@ export function issue(paramsOrTx: any, seed?: TSeedTypes): IIssueTransaction & W
     script: paramsOrTx.script == null ? undefined : base64Prefix(paramsOrTx.script)!,
     decimals: paramsOrTx.decimals == null ? 8 : paramsOrTx.decimals,
     reissuable: paramsOrTx.reissuable || false,
-    fee: fee(paramsOrTx, 100000000),
+    fee: fee(paramsOrTx, 50000000000),
     timestamp: Date.now(),
-    chainId: networkByte(paramsOrTx.chainId, 87),
+    chainId: networkByte(paramsOrTx.chainId, 90),
     proofs: paramsOrTx.proofs || [],
     id: '',
   }

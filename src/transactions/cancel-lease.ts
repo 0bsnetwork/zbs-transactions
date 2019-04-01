@@ -19,9 +19,9 @@ export function cancelLease(paramsOrTx: any, seed?: TSeedTypes): ICancelLeaseTra
     version,
     senderPublicKey,
     leaseId: paramsOrTx.leaseId,
-    fee: fee(paramsOrTx, 100000),
+    fee: fee(paramsOrTx, 100000000),
     timestamp: paramsOrTx.timestamp || Date.now(),
-    chainId: networkByte(paramsOrTx.chainId, 87),
+    chainId: networkByte(paramsOrTx.chainId, 90),
     proofs: paramsOrTx.proofs || [],
     id: '',
   }

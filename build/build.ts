@@ -17,7 +17,7 @@ async function build() {
     await copy(p('../usage'), p('tmp/usage'))
     await copy(p('../tsconfig.json'), p('tmp/tsconfig.json'))
     await run('tsc', p('tmp'))
-    await create(p('tmp/node_modules/@waves/'))
+    await create(p('tmp/node_modules/@0bsnetwork/'))
     await copy(p('tmp/dist'), p('tmp/node_modules/@0bsnetwork/zbs-transactions'))
     await copyJson(p('../package.json'), p('tmp/node_modules/@0bsnetwork/zbs-transactions/package.json'), { main: 'index.js', types: 'index.d.ts' })
     await remove(p('tmp/dist'))

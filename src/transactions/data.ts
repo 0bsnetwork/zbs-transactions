@@ -65,7 +65,7 @@ export function data(paramsOrTx: any, seed?: TSeedTypes): IDataTransaction & Wit
     LONG(_timestamp)
   )
 
-  const computedFee = (Math.floor(1 + (bytes.length + 8/*feeLong*/ - 1) / 1024) * 100000)
+  const computedFee = (Math.floor(1 + (bytes.length + 8/*feeLong*/ - 1) / 1024) * 3000000)
 
   const tx: IDataTransaction & WithId = {
     type,
@@ -93,4 +93,4 @@ export function data(paramsOrTx: any, seed?: TSeedTypes): IDataTransaction & Wit
   tx.id = hashBytes(bytes1)
 
   return tx
-} 
+}
