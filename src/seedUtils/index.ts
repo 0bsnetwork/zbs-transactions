@@ -20,14 +20,14 @@ export class Seed {
     privateKey: string
   }
 
-  constructor(phrase: string) {
+  constructor(phrase: string, chainId?: string) {
     if (phrase.length < 12) {
       throw new Error('Your seed length is less than allowed in config')
     }
 
 
     this.phrase = phrase
-    this.address = address(phrase)
+    this.address = address(phrase, chainId)
     this.keyPair = {
       privateKey: privateKey(phrase),
       publicKey: publicKey(phrase),
@@ -77,7 +77,7 @@ export class Seed {
 
   }
 
-  public static create(words: number = 15): Seed {
+  public static create(words: number = 15, chainId: string = 'Z'): Seed {
     const phrase = generateNewSeed(words)
     const minimumSeedLength = 12
 
@@ -86,10 +86,10 @@ export class Seed {
       throw new Error(`The resulted seed length is less than the minimum length (${minimumSeedLength})`)
     }
 
-    return new Seed(phrase)
+    return new Seed(phrase, chainId)
   }
 
-  public static fromExistingPhrase(phrase: string): Seed {
+  public static fromExistingPhrase(phrase: string, chainId: string = 'Z'): Seed {
     const minimumSeedLength = 12
 
     if (phrase.length < minimumSeedLength) {
@@ -97,7 +97,7 @@ export class Seed {
       throw new Error(`The resulted seed length is less than the minimum length (${minimumSeedLength})`)
     }
 
-    return new Seed(phrase)
+    return new Seed(phrase, chainId)
   }
 
 }
